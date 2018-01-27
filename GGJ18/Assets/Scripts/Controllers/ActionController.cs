@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ActionController : MonoBehaviour {
 
+	public string message;
+	public string targetTag;
+
 	/* Controller methods:
 	 * - Checks conditions every frame for win or lose, communicates state when triggered to GameStateController
 	 * - Tracks PlayerObject throughout level every frame for change in conditions: interacting with a HackableObject
@@ -16,6 +19,29 @@ public class ActionController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (message != "" && targetTag != "")
+			AllowAction (message, GameObject.FindGameObjectWithTag ("Player"),targetTag);
+	}
+
+	void AllowAction(string currentMsg,GameObject player, string currentTargetTag) {
+		if (currentMsg == "Transmit" && Input.GetKey (KeyCode.LeftShift)) {
+			Debug.Log ("Transmitting...");
+			player.GetComponent<Transform> ().position = new Vector3 (
+				GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.x,
+				GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.y,
+				GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.z
+			);
+
+		} else if (message == "DoorOpen") {
+			Debug.Log ("Through the door...");
+			//			Vector3 outlet2Pos = player.GetComponent<Transform> ().position = new Vector3 (
+			//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.x,
+			//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.y,
+			//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.z
+			//			);
+		}
+
+		message = "";
+		targetTag = "";
 	}
 }
