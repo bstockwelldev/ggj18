@@ -25,19 +25,6 @@ public class OutletObject : HackableObject {
 		//		OnCollisionEnter2D(collider);
 	}
 
-	//	void OnCollisionEnter2D(Collision2D coll) {
-	//		if (coll.gameObject.tag == "Player")
-	//			coll.gameObject.SendMessage("Transmit", "ActOnOutlet");
-	//
-	//	}
-
-	void AllowAction(string message,GameObject player) {
-		if (message == "Transmit" && Input.GetKey (KeyCode.LeftShift)) {
-			Debug.Log ("Transmitting...");
-			player.GetComponent<Transform> ().localPosition = new Vector3(3,5,0);
-		}
-	}
-
 	void OnTriggerEnter2D(Collider2D coll) {
 		//		Debug.Log ("Object Entered the trigger");
 	}
@@ -49,6 +36,24 @@ public class OutletObject : HackableObject {
 	}
 
 	void OnTriggerExit2D(Collider2D coll) {
-		Debug.Log ("Object Exited the trigger");
+//		Debug.Log ("Object Exited the trigger");
+	}
+
+	void AllowAction(string message,GameObject player) {
+		if (message == "Transmit" && Input.GetKey (KeyCode.LeftShift)) {
+			Debug.Log ("Transmitting...");
+			player.GetComponent<Transform> ().position = new Vector3 (
+				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.x,
+				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.y,
+				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.z
+			);
+		} else if (message == "DoorOpen") {
+			Debug.Log ("Through the door...");
+//			Vector3 outlet2Pos = player.GetComponent<Transform> ().position = new Vector3 (
+//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.x,
+//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.y,
+//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.z
+//			);
+		}
 	}
 }
