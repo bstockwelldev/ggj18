@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerObject : DynamicObject {
 
 	public float speed;             //Floating point variable to store the player's movement speed.
+	public float MaxSpeed;
 	public float jumpForce;
 	private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 	private Collider2D Collider;
@@ -48,6 +49,9 @@ public class PlayerObject : DynamicObject {
 				moveScale = 0.25;
 			}
 			CurrentSpeed -= 2*moveScale;
+			if (CurrentSpeed < -MaxSpeed) {
+				CurrentSpeed = 0;
+			}
 		
 		}
 		if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
@@ -56,6 +60,9 @@ public class PlayerObject : DynamicObject {
 				moveScale = 0.25;
 			}
 			CurrentSpeed += 2*moveScale;
+			if (CurrentSpeed > MaxSpeed) {
+				CurrentSpeed = 0;
+			}
 		}
 
 		//Store the current vertical input in the float moveVertical.
@@ -70,13 +77,11 @@ public class PlayerObject : DynamicObject {
 		rb2d.AddForce (JumpVect*jumpForce); // jump
 		rb2d.AddForce (WalkVector*speed);//Walk
 
+		if(Input.GetKey(KeyCode.LeftShift)){
+			
+			Debug.Log("OMGHAX!!!");
+	
+		}
+
 	}
-
-	//////////////////////////
-	/// /////////////////////
-	/// 
-	/// 
-
 }
-
-
