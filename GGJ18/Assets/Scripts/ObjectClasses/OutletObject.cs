@@ -30,15 +30,21 @@ public class OutletObject : HackableObject {
 //
 //	}
 
-	void OnTriggerEnter(Collider other) {
-		Debug.Log ("Object Entered the trigger");
+	void AllowAction(string message) {
+//		if (message == "Transmit" && )
+			
 	}
 
-	void OnTriggerStay(Collider other) {
+	void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log ("Object Entered the trigger");
+		AllowAction ("Transmit");
+	}
+
+	void OnTriggerStay2D(Collider2D other) {
 		Debug.Log ("Object is within the trigger");
 	}
 
-	void OnTriggerExit(Collider other) {
+	void OnTriggerExit2D(Collider2D other) {
 		Debug.Log ("Object Exited the trigger");
 	}
 }
