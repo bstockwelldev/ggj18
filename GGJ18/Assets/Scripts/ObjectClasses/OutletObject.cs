@@ -11,10 +11,11 @@ public class OutletObject : HackableObject {
 	 * - node connections between outlets and doors of a level
 	*/
 
-//	Collision2D collider;
+
 
 	// Use this for initialization
 	void Start () {
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		
 	}
 	
@@ -30,21 +31,24 @@ public class OutletObject : HackableObject {
 //
 //	}
 
-	void AllowAction(string message) {
-//		if (message == "Transmit" && )
-			
+	void AllowAction(string message,GameObject player) {
+//		if (message == "Transmit" && Input.GetKey (KeyCode.LeftShift))
+			Debug.Log ("Transmitting...");
+		Debug.Log (player);
+		//player.GetComponent<Rigidbody2D> ().position.Set (0, 50);
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerEnter2D(Collider2D coll) {
 		Debug.Log ("Object Entered the trigger");
-		AllowAction ("Transmit");
 	}
 
-	void OnTriggerStay2D(Collider2D other) {
-		Debug.Log ("Object is within the trigger");
+	void OnTriggerStay2D(Collider2D coll) {
+//		Debug.Log ("Object is within the trigger");
+//		if(coll.gameObject.tag == "Player")
+		AllowAction ("Transmit",GameObject.FindGameObjectWithTag ("Player"));
 	}
 
-	void OnTriggerExit2D(Collider2D other) {
+	void OnTriggerExit2D(Collider2D coll) {
 		Debug.Log ("Object Exited the trigger");
 	}
 }
