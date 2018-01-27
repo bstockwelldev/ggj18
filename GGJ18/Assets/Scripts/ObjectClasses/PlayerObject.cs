@@ -79,7 +79,8 @@ public class PlayerObject : DynamicObject {
 
 		if(Input.GetKey(KeyCode.LeftShift)){
 			
-			Debug.Log("OMGHAX!!!");
+//			Debug.Log("OMGHAX!!!");
+			rb2d.transform.position.Set(10f,10f,0);
 	
 		}
 
