@@ -18,10 +18,7 @@ public class PlayerObject : DynamicObject {
 	// Update is called once per frame
 	void Update () {
 		// check for overlap collision with other base class game object
-		Sprite PlayerSprite = GetComponent<SpriteRenderer> ().sprite;
-		string spriteNames = "PlayerSprite";
-		Sprite[] sprites = Resources.LoadAll<Sprite>(spriteNames);
-		Debug.Log (sprites[0].name);
+
 	}
 	void FixedUpdate()
 	{
