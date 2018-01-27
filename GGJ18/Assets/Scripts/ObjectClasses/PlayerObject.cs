@@ -27,14 +27,26 @@ public class PlayerObject : DynamicObject {
 		/// Handles Movements
 		////////////////////////////
 		int jump = 0;
-		Collider2D floor = GameObject.FindGameObjectWithTag ("Floor").GetComponent<Collider2D>();
-		bool IsTouchingFloor = Collider.IsTouching (floor);
+		//GetAll floors
+
+		GameObject[] floors = GameObject.FindGameObjectsWithTag ("Floor");
+		bool IsTouchingFloor = false;
+		foreach(GameObject item in floors)
+		{
+			//Collider.IsTouching (floor)
+			IsTouchingFloor = Collider.GetComponent<Collider2D>().IsTouching(item.GetComponent<Collider2D>());
+			if (IsTouchingFloor)
+				break;
+		}
+
+
 		if (Input.GetKey(KeyCode.Space)) {
 
 
-
+			Debug.Log ("tryjump");
 			if (IsTouchingFloor) {
 				jump = 1;
+				Debug.Log ("jump");
 			}
 
 		}
@@ -80,7 +92,7 @@ public class PlayerObject : DynamicObject {
 
 		if(Input.GetKey(KeyCode.LeftShift)){
 			
-//			Debug.Log("OMGHAX!!!");
+			Debug.Log("OMGHAX!!!");
 			rb2d.transform.position.Set(10f,10f,0);
 	
 		}
