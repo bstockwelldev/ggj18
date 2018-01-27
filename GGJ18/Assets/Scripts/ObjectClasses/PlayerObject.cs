@@ -21,7 +21,9 @@ public class PlayerObject : DynamicObject {
 	void FixedUpdate()
 	{
 		//Store the current horizontal input in the float moveHorizontal.
-
+		////////////////////////////
+		/// Handles Movements
+		////////////////////////////
 		int jump = 0;
 		Collider2D floor = GameObject.FindGameObjectWithTag ("Floor").GetComponent<Collider2D>();
 		bool IsTouchingFloor = Collider.IsTouching (floor);
@@ -42,7 +44,7 @@ public class PlayerObject : DynamicObject {
 
 		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
 			double moveScale = 1.0;
-			if (!IsTouchingFloor) {
+			if (!IsTouchingFloor && CurrentSpeed < 0) {
 				moveScale = 0.25;
 			}
 			CurrentSpeed -= 2*moveScale;
@@ -50,7 +52,7 @@ public class PlayerObject : DynamicObject {
 		}
 		if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
 			double moveScale = 1.0;
-			if (!IsTouchingFloor) {
+			if (!IsTouchingFloor && CurrentSpeed > 0) {
 				moveScale = 0.25;
 			}
 			CurrentSpeed += 2*moveScale;
@@ -70,6 +72,10 @@ public class PlayerObject : DynamicObject {
 
 	}
 
+	//////////////////////////
+	/// /////////////////////
+	/// 
+	/// 
 
 }
 
