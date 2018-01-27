@@ -15,7 +15,7 @@ public class OutletObject : HackableObject {
 
 	// Use this for initialization
 	void Start () {
-		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+//		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		
 	}
 	
@@ -31,11 +31,11 @@ public class OutletObject : HackableObject {
 //
 //	}
 
-	void AllowAction(string message) {
-		if (message == "Transmit" && Input.GetKey (KeyCode.LeftShift))
+	void AllowAction(string message,GameObject player) {
+		if (message == "Transmit" && Input.GetKey (KeyCode.LeftShift)) {
 			Debug.Log ("Transmitting...");
-		// Debug.Log (player);
-//		player.GetComponent<Rigidbody2D>().position.Set (0, 50);
+			player.GetComponent<Transform> ().localPosition = new Vector3(3,5,0);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
@@ -45,7 +45,7 @@ public class OutletObject : HackableObject {
 	void OnTriggerStay2D(Collider2D coll) {
 //		Debug.Log ("Object is within the trigger");
 		if(coll.gameObject.tag == "Player")
-			AllowAction ("Transmit");
+			AllowAction ("Transmit",GameObject.FindGameObjectWithTag("Player"));
 	}
 
 	void OnTriggerExit2D(Collider2D coll) {
