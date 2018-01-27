@@ -12,5 +12,6 @@ public class BaseObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// check for overlap collision with other base class game object
+		// if two objects collide, emit collision message
 	}
 }
