@@ -25,11 +25,12 @@ public class PlayerObject : DynamicObject {
 		int jump = 0;
 
 		if (Input.GetKey(KeyCode.Space)) {
-			GameObject floor = GameObject.FindGameObjectsWithTag ("Floor").GetComp;
+			Collider2D floor = GameObject.FindGameObjectWithTag ("Floor").GetComponent<Collider2D>();
+
 			Debug.Log (floor);
-		//	if (Collider.IsTouching (floor.GetComponent<Collider2D>())) {
+			if (Collider.IsTouching (floor)) {
 				jump = 1;
-			//}
+			}
 
 		}
 		if(Input.GetKey(KeyCode.A)){
