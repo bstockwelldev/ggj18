@@ -43,17 +43,17 @@ public class PlayerObject : DynamicObject {
 		if (Input.GetKey(KeyCode.Space)) {
 
 
-			Debug.Log ("tryjump");
+
 			if (IsTouchingFloor) {
 				jump = 1;
-				Debug.Log ("jump");
+
 			}
 
 		}
 		Vector2 WalkVector = new Vector2(0,0);
 		rb2d.GetVector(WalkVector);
 		double CurrentSpeed = WalkVector.x;
-		//Debug.Log (CurrentSpeed);
+
 
 
 		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
@@ -92,7 +92,7 @@ public class PlayerObject : DynamicObject {
 
 		if(Input.GetKey(KeyCode.LeftShift)){
 			
-			Debug.Log("OMGHAX!!!");
+
 			rb2d.transform.position.Set(10f,10f,0);
 	
 		}

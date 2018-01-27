@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-
+	/*
 	// Use this for initialization
 	public float xMargin = 1f;
 	public float yMargin = 1f;
@@ -51,4 +51,5 @@ public class CameraController : MonoBehaviour {
 	
 
 	}
+	*/
 }
