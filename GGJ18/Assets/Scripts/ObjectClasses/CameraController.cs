@@ -15,9 +15,9 @@ public class CameraController : MonoBehaviour {
 	private Transform player;
 
 	void Awake(){
-		Debug.Log ("awake");
+		
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
-		Debug.Log (transform);
+
 	}
 	bool CheckXMargin(){
 		return Mathf.Abs (transform.position.x - player.position.x) > xMargin;
@@ -27,13 +27,13 @@ public class CameraController : MonoBehaviour {
 
 	}
 	void FixedUpdate(){
-		Debug.Log ("fixedupdate");
+		
 		TrackPlayer ();
 
 
 	}
 	void TrackPlayer(){
-		Debug.Log ("track");
+		
 		float targetX = transform.position.x;
 		float targetY = transform.position.y;
 
@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour {
 		targetY = Mathf.Clamp (targetY, minXAndY.y, maxXAndY.y);
 
 		transform.position = new Vector3 (targetX, targetY, transform.position.z);
-		Debug.Log (transform);
+	
 
 	}
 }
