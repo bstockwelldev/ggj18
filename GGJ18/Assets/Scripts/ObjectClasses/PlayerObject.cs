@@ -23,31 +23,50 @@ public class PlayerObject : DynamicObject {
 		//Store the current horizontal input in the float moveHorizontal.
 
 		int jump = 0;
-
+		Collider2D floor = GameObject.FindGameObjectWithTag ("Floor").GetComponent<Collider2D>();
+		bool IsTouchingFloor = Collider.IsTouching (floor);
 		if (Input.GetKey(KeyCode.Space)) {
-			Collider2D floor = GameObject.FindGameObjectWithTag ("Floor").GetComponent<Collider2D>();
 
-			Debug.Log (floor);
-			if (Collider.IsTouching (floor)) {
+
+
+			if (IsTouchingFloor) {
 				jump = 1;
 			}
 
 		}
-		if(Input.GetKey(KeyCode.A)){
+		Vector2 WalkVector = new Vector2(0,0);
+		rb2d.GetVector(WalkVector);
+		double CurrentSpeed = WalkVector.x;
+		//Debug.Log (CurrentSpeed);
 
+
+		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
+			double moveScale = 1.0;
+			if (!IsTouchingFloor) {
+				moveScale = 0.25;
+			}
+			CurrentSpeed -= 2*moveScale;
+		
 		}
-		if(Input.GetKey(KeyCode.D)){
-
+		if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
+			double moveScale = 1.0;
+			if (!IsTouchingFloor) {
+				moveScale = 0.25;
+			}
+			CurrentSpeed += 2*moveScale;
 		}
 
 		//Store the current vertical input in the float moveVertical.
-
+		WalkVector.x +=(float)CurrentSpeed;
 
 		//Use the two store floats to create a new Vector2 variable movement.
-		Vector2 movement = new Vector2 (0, jump*jumpForce);
+
+		
+		Vector2 JumpVect = new Vector2 (0, jump);
 
 		//Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
-		rb2d.AddForce (movement * speed);
+		rb2d.AddForce (JumpVect*jumpForce); // jump
+		rb2d.AddForce (WalkVector*speed);//Walk
 
 	}
 
