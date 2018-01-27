@@ -18,6 +18,7 @@ public class PlayerObject : DynamicObject {
 	// Update is called once per frame
 	void Update () {
 		// check for overlap collision with other base class game object
+
 	}
 	void FixedUpdate()
 	{
@@ -79,7 +80,8 @@ public class PlayerObject : DynamicObject {
 
 		if(Input.GetKey(KeyCode.LeftShift)){
 			
-			Debug.Log("OMGHAX!!!");
+//			Debug.Log("OMGHAX!!!");
+			rb2d.transform.position.Set(10f,10f,0);
 	
 		}
 
