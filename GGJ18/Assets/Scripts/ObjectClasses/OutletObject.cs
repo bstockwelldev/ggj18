@@ -15,21 +15,21 @@ public class OutletObject : HackableObject {
 
 	// Use this for initialization
 	void Start () {
-//		GameObject player = GameObject.FindGameObjectWithTag ("Player");
-		
+		//		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		// check for collision with player
-//		OnCollisionEnter2D(collider);
+		//		OnCollisionEnter2D(collider);
 	}
 
-//	void OnCollisionEnter2D(Collision2D coll) {
-//		if (coll.gameObject.tag == "Player")
-//			coll.gameObject.SendMessage("Transmit", "ActOnOutlet");
-//
-//	}
+	//	void OnCollisionEnter2D(Collision2D coll) {
+	//		if (coll.gameObject.tag == "Player")
+	//			coll.gameObject.SendMessage("Transmit", "ActOnOutlet");
+	//
+	//	}
 
 	void AllowAction(string message,GameObject player) {
 		if (message == "Transmit" && Input.GetKey (KeyCode.LeftShift)) {
@@ -39,11 +39,11 @@ public class OutletObject : HackableObject {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
-//		Debug.Log ("Object Entered the trigger");
+		//		Debug.Log ("Object Entered the trigger");
 	}
 
 	void OnTriggerStay2D(Collider2D coll) {
-//		Debug.Log ("Object is within the trigger");
+		//		Debug.Log ("Object is within the trigger");
 		if(coll.gameObject.tag == "Player")
 			AllowAction ("Transmit",GameObject.FindGameObjectWithTag("Player"));
 	}
