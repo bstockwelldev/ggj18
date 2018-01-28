@@ -25,21 +25,25 @@ public class ActionController : MonoBehaviour {
 
 	void AllowAction(string currentMsg,GameObject player, string currentTargetTag) {
 		if(Input.GetKey (KeyCode.LeftShift)) {
+			GameObject actingObject = GameObject.FindGameObjectWithTag (currentTargetTag);
 			if (currentMsg == "Transmit") {
 				Debug.Log ("Transmitting...");
 				player.GetComponent<Transform> ().position = new Vector3 (
-					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.x,
-					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.y,
-					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.z
+					actingObject.GetComponent<Transform>().position.x,
+					actingObject.GetComponent<Transform>().position.y,
+					actingObject.GetComponent<Transform>().position.z
 				);
 
 			} else if (message == "Open Door") {
 				Debug.Log ("Opening door to next room...");
 				player.GetComponent<Transform> ().position = new Vector3 (
-					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.x,
-					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.y,
-					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.z
+					actingObject.GetComponent<Transform>().position.x,
+					actingObject.GetComponent<Transform>().position.y,
+					actingObject.GetComponent<Transform>().position.z
 				);
+			} else if (message == "Lights Off") {
+				Debug.Log ("Who turned out the lights?!");
+
 			}
 		}
 
