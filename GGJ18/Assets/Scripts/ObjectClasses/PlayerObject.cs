@@ -20,6 +20,42 @@ public class PlayerObject : DynamicObject {
 		// check for overlap collision with other base class game object
 
 	}
+	bool ColliderFromBottom(Collision2D collision){
+
+		Collider2D collider = collision.collider;
+		bool collideFromLeft;
+		bool collideFromTop;
+		bool collideFromRight;
+		bool collideFromBottom = false;
+		float RectWidth = this.GetComponent<Collider2D> ().bounds.size.x;
+		float RectHeight = this.GetComponent<Collider2D> ().bounds.size.y;
+		float circleRad = collider.bounds.size.x;
+
+		if(collider.name == "Floor")
+		{ 
+			Vector3 contactPoint = collision.contacts[0].point;
+			Vector3 center = collider.bounds.center;
+
+			if (contactPoint.y > center.y && //checks that circle is on top of rectangle
+				(contactPoint.x < center.x + RectWidth / 2 && contactPoint.x > center.x - RectWidth / 2)) {
+				collideFromTop = true;
+			}
+			else if (contactPoint.y < center.y &&
+				(contactPoint.x < center.x + RectWidth / 2 && contactPoint.x > center.x - RectWidth / 2)) {
+				collideFromBottom = true;
+			}
+			else if (contactPoint.x > center.x &&
+				(contactPoint.y < center.y + RectHeight / 2 && contactPoint.y > center.y - RectHeight / 2)) {
+				collideFromRight = true;
+			}
+			else if (contactPoint.x < center.x &&
+				(contactPoint.y < center.y + RectHeight / 2 && contactPoint.y > center.y - RectHeight / 2)) {
+				collideFromLeft = true;
+			}
+		}
+		return collideFromBottom;
+	}
+
 	void FixedUpdate()
 	{
 		//Store the current horizontal input in the float moveHorizontal.
@@ -35,6 +71,7 @@ public class PlayerObject : DynamicObject {
 		{
 			//Collider.IsTouching (floor)
 			IsTouchingFloor = Collider.GetComponent<Collider2D>().IsTouching(item.GetComponent<Collider2D>());
+
 			if (IsTouchingFloor)
 				break;
 		}
@@ -98,4 +135,5 @@ public class PlayerObject : DynamicObject {
 		}
 
 	}
+				
 }
