@@ -19,7 +19,7 @@ public class RoomScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll) {
 
 		if (coll.gameObject.tag == "Player") {
-			Debug.Log ("enteredRoom");
+//			Debug.Log ("enteredRoom");
 
 
 
@@ -40,7 +40,7 @@ public class RoomScript : MonoBehaviour {
 
 	
 		if (coll.gameObject.tag == "Player") {
-			Debug.Log ("leftroom");
+//			Debug.Log ("leftroom");
 		}
 	}
 

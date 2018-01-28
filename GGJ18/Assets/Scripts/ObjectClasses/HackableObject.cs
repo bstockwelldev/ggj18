@@ -11,6 +11,7 @@ public class HackableObject : StaticObject {
 
 	public string hackMessage;
 	public string hackDestination;
+	public Sprite responseSprite;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +30,7 @@ public class HackableObject : StaticObject {
 			ActionController actionController = actions.GetComponent<ActionController>();
 			actionController.message = hackMessage;
 			actionController.targetTag = hackDestination;
-
+			actionController.newSprite = responseSprite;
 		}
 	}
 
