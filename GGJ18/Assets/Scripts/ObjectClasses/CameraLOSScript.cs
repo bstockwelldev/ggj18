@@ -15,8 +15,9 @@ public class CameraLOSScript : MonoBehaviour {
 		
 	}
 	void OnTriggerStay2D(Collider2D coll) {
-				Debug.Log ("Object is within the trigger");
+				
 		if(coll.gameObject.tag == "Player") {
+			Debug.Log ("Restart");
 			GameObject restarter = GameObject.FindGameObjectWithTag ("GameController");
 			GameStateController next = restarter.GetComponent<GameStateController> ();
 			next.RestartGame ();
