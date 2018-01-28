@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door2
+  - Floor
+  - Actions
+  - Room3Start
+  - Outlet2
+  - Lamp3
   layers:
   - Default
   - TransparentFX
