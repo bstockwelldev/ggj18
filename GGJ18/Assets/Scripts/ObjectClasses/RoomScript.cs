@@ -17,24 +17,28 @@ public class RoomScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
-		
+
 		if (coll.gameObject.tag == "Player") {
-			Collider2D self = GetComponent<Collider2D> ();
-			Camera.main.pixelRect = GetComponent<RectTransform> ().rect;
+			Debug.Log ("enteredRoom");
+
+
+			Camera.main.transform.position = new Vector3(transform.position.x,transform.position.y,-1);
+			Camera.main.transform.localScale = transform.localScale;
+
 	
 
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D coll) {
-		
+
 	}
 
 	void OnTriggerExit2D(Collider2D coll) {
 
-
+	
 		if (coll.gameObject.tag == "Player") {
-			
+			Debug.Log ("leftroom");
 		}
 	}
 
