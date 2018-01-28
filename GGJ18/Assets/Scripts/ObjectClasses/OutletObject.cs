@@ -11,18 +11,13 @@ public class OutletObject : HackableObject {
 	 * - node connections between outlets and doors of a level
 	*/
 
-
-
 	// Use this for initialization
 	void Start () {
-		//		GameObject player = GameObject.FindGameObjectWithTag ("Player");
-
 	}
 
 	// Update is called once per frame
 	void Update () {
 		// check for collision with player
-		//		OnCollisionEnter2D(collider);
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {

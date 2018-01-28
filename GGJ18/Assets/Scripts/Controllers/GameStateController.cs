@@ -15,9 +15,15 @@ public class GameStateController : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+		if(Input.GetKey (KeyCode.Escape)) {
+			RestartGame ();
+		}
+	}
+
+	void RestartGame() {
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = new Vector3(-0.92f,1.09f,0f);
 	}
 }

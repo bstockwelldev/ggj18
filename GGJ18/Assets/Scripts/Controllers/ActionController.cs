@@ -32,13 +32,13 @@ public class ActionController : MonoBehaviour {
 				GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.z
 			);
 
-		} else if (message == "DoorOpen") {
-			Debug.Log ("Through the door...");
-			//			Vector3 outlet2Pos = player.GetComponent<Transform> ().position = new Vector3 (
-			//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.x,
-			//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.y,
-			//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.z
-			//			);
+		} else if (message == "LightsOff") {
+			Debug.Log ("Turns the light off...");
+//			Vector3 outlet2Pos = player.GetComponent<Transform> ().position = new Vector3 (
+//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.x,
+//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.y,
+//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.z
+//			);
 		}
 
 		message = "";
