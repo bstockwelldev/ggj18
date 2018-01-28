@@ -32,7 +32,7 @@ public class GameStateController : MonoBehaviour {
 
 	}
 
-	void RestartGame() {
+	public void RestartGame() {
 		GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = new Vector3(-0.92f,1.00f,0f);
 	}
 }

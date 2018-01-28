@@ -13,6 +13,9 @@ public class PlayerObject : DynamicObject {
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
 		Collider = GetComponent<Collider2D> ();
+
+
+
 	}
 
 	// Update is called once per frame
