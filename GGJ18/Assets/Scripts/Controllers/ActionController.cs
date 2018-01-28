@@ -24,21 +24,23 @@ public class ActionController : MonoBehaviour {
 	}
 
 	void AllowAction(string currentMsg,GameObject player, string currentTargetTag) {
-		if (currentMsg == "Transmit" && Input.GetKey (KeyCode.LeftShift)) {
-			Debug.Log ("Transmitting...");
-			player.GetComponent<Transform> ().position = new Vector3 (
-				GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.x,
-				GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.y,
-				GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.z
-			);
+		if(Input.GetKey (KeyCode.LeftShift)) {
+			if (currentMsg == "Transmit") {
+				Debug.Log ("Transmitting...");
+				player.GetComponent<Transform> ().position = new Vector3 (
+					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.x,
+					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.y,
+					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.z
+				);
 
-		} else if (message == "LightsOff") {
-			Debug.Log ("Turns the light off...");
-//			Vector3 outlet2Pos = player.GetComponent<Transform> ().position = new Vector3 (
-//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.x,
-//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.y,
-//				GameObject.FindGameObjectWithTag("Outlet2").GetComponent<Transform>().position.z
-//			);
+			} else if (message == "Open Door") {
+				Debug.Log ("Opening door to next room...");
+				player.GetComponent<Transform> ().position = new Vector3 (
+					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.x,
+					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.y,
+					GameObject.FindGameObjectWithTag(currentTargetTag).GetComponent<Transform>().position.z
+				);
+			}
 		}
 
 		message = "";

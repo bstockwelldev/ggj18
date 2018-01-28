@@ -11,6 +11,9 @@ public class GameStateController : MonoBehaviour {
 	 * - Win State: reach end of level point, receive win condition from action controller
 	*/
 
+	public bool gameLost;
+	public bool gameWon;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,12 +21,18 @@ public class GameStateController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if(gameLost) {
+			RestartGame();
+		} else if (gameWon) {
+
+		}
 		if(Input.GetKey (KeyCode.Escape)) {
 			RestartGame ();
 		}
+
 	}
 
 	void RestartGame() {
-		GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = new Vector3(-0.92f,1.09f,0f);
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position = new Vector3(-0.92f,1.00f,0f);
 	}
 }

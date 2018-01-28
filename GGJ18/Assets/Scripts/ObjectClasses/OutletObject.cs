@@ -19,25 +19,25 @@ public class OutletObject : HackableObject {
 	void Update () {
 		// check for collision with player
 	}
-
-	void OnTriggerEnter2D(Collider2D coll) {
-		//		Debug.Log ("Object Entered the trigger");
-	}
-
-	void OnTriggerStay2D(Collider2D coll) {
-		//		Debug.Log ("Object is within the trigger");
-		if(coll.gameObject.tag == "Player") {
-			GameObject actions = GameObject.FindGameObjectWithTag("Actions");
-			ActionController actionController = actions.GetComponent<ActionController>();
-			actionController.message = "Transmit";
-			actionController.targetTag = "Outlet2";
-
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D coll) {
-//		Debug.Log ("Object Exited the trigger");
-	}
+//
+//	void OnTriggerEnter2D(Collider2D coll) {
+//		//		Debug.Log ("Object Entered the trigger");
+//	}
+//
+//	void OnTriggerStay2D(Collider2D coll) {
+//		//		Debug.Log ("Object is within the trigger");
+//		if(coll.gameObject.tag == "Player") {
+//			GameObject actions = GameObject.FindGameObjectWithTag("Actions");
+//			ActionController actionController = actions.GetComponent<ActionController>();
+//			actionController.message = hackM;
+//			actionController.targetTag = "Outlet2";
+//
+//		}
+//	}
+//
+//	void OnTriggerExit2D(Collider2D coll) {
+////		Debug.Log ("Object Exited the trigger");
+//	}
 
 
 }
