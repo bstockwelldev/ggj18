@@ -22,9 +22,11 @@ public class RoomScript : MonoBehaviour {
 			Debug.Log ("enteredRoom");
 
 
-			Camera.main.transform.position = new Vector3(transform.position.x,transform.position.y,-1);
+
+
 			Camera.main.transform.localScale = transform.localScale;
 
+			Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(transform.position.x,transform.position.y, -1f), 10f);
 	
 
 		}
