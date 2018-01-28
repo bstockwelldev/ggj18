@@ -25,7 +25,6 @@ public class RoomScript : MonoBehaviour {
 
 
 			Camera.main.transform.localScale = transform.localScale;
-
 			Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(transform.position.x,transform.position.y, -1f), 10f);
 			
 

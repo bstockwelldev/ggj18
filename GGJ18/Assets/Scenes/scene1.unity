@@ -2886,7 +2886,7 @@ GameObject:
   - component: {fileID: 1370647658}
   m_Layer: 0
   m_Name: 2satelite_Frame
-  m_TagString: Untagged
+  m_TagString: Satelite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3365,13 +3365,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1480628078}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: -0.19, z: 0.030745357}
+  m_LocalRotation: {x: 0.007725788, y: -0.028833022, z: 0.2587038, w: 0.9654954}
+  m_LocalPosition: {x: 0.69, y: 0.79, z: 0.030745357}
   m_LocalScale: {x: 8.663299, y: 0.084429994, z: 1}
   m_Children: []
   m_Father: {fileID: 1212005578}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.71, y: -2.9640002, z: 29.956001}
 --- !u!114 &1480628080
 MonoBehaviour:
   m_ObjectHideFlags: 0
