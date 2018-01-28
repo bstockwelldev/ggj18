@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door2
+  - Floor
+  - Actions
+  - Room3Start
+  - Outlet2
   layers:
   - Default
   - TransparentFX
@@ -38,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 3440495835
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
